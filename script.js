@@ -51,4 +51,74 @@
 // var z = "32.5"
 // var sum = x + +z
 
+// bitwise >> << 
+
 // https://github.com/Taichir0923/SW-917-AB
+
+// condition, loop
+// <, >, =, !, &, |
+// =
+// ==
+// ===
+
+// if statement
+// ternary operator ? :
+// switch case
+
+// if else
+// var nas = 18;
+// <= , >=,
+
+// if else if
+// and - && , or - ||
+
+// if(nas >= 18){ // true
+//     alert('Adult');
+// } else { // false
+//     alert('Child')
+// }
+// var nas = +prompt('Насаа оруул');
+// nas 0-12 baga nas, 13-17, osvor nas
+// 18-25 ider zaluu nas
+// 25-35 zaluu nas
+// 35-50 
+// if(nas >= 0 && nas <= 12){
+//     console.log('baga nas')
+// } else if (nas >= 13 && nas < 18){
+//     console.log('osvor nas')
+// } else {
+//     console.log('adult')
+// }
+
+// ternary operator
+// nas >= 0 && nas <= 12 ? console.log('baga nas') : 
+// nas >= 13 && nas <= 17 ? console.log('osvor nas') : console.log('adult')
+
+// switch(true){
+//     case nas >= 0 && nas < 13:
+//         console.log('child');
+//         break;
+//     case nas >= 12 && nas < 18:
+//         console.log('osvor nas');
+//         break;
+//     default:   console.log('adult');
+// }
+
+// loop davtalj
+// for loop, while, do while, for in, for of
+// for(huvisagch, condition, action){}
+// forEach, filter
+
+// 100 hurtel buh sondgoi toog consold hevle
+// for(var i = 0; i <= 10; i++){
+//     if(i%2 !== 1){
+//         console.log(i)
+//     }
+// }
+var i = 0;
+var word = "Hello"
+do {
+    console.log(word[i]);
+    i++;
+}
+while(i < word.length)
