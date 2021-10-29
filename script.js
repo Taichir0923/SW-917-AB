@@ -115,10 +115,122 @@
 //         console.log(i)
 //     }
 // }
-var i = 0;
-var word = "Hello"
-do {
-    console.log(word[i]);
-    i++;
+// var i = 0;
+// var word = "Hello"
+// do {
+//     console.log(word[i]);
+//     i++;
+// }
+// while(i < word.length)
+
+// String methods
+
+// "hello world".length
+// "hello world"[7] = "o";
+
+// var x = "1234573984789";
+// var sum = 0;
+// for(var i = 0; i < x.length; i++){
+//     if(+x[i]%2 === 0){
+//         sum += +x[i];
+//     }
+// }
+
+// 10**0 === 1
+// 10**1 === 10
+// 10**2 === 100
+
+
+// var x = 245;
+// var counter = 0;
+// for(var i = 1; i <= 245; i++){
+//     if(x%i === 0){
+//         console.log(i)
+//         counter++;
+//     }
+// }
+
+// Non-Primitive data types
+// Arrays, Object, Regular Expressions
+// Array - Массив
+
+// var numbers = ["Narada", 12, true] // new Array
+// array methods
+// "gjdjfl".slice()
+// var x = 5; x.toString()
+
+// push
+// numbers.push(456, 457, 458);
+
+// pop
+// numbers.pop();
+// numbers.pop();
+// numbers.pop();
+
+// splice
+// numbers.splice(2, 1)
+
+// unshift()
+// numbers.unshift("shine utga", "dahiad ng", "gg");
+
+// // shift()
+// numbers.shift();
+// numbers.shift();
+// numbers.shift();
+
+// reverse()
+// var newArr = numbers.reverse()
+// for(var i = 0; i < numbers.length; i++){
+//     console.log(numbers[i])
+// }
+
+// Too, boolean, String холилдсон 10ш өгөгдөл агуулсан массив үүсгэ. Үүсгэсэн массив дотроос дан Стринг төрлийн өгөгдлийг консолд хэвлэ.
+// typeof 123 === "number"
+
+// Object - property: value
+
+var student = {
+    ner: "Narada",
+    year: 3,
+    email: "narada@mail.com",
+    number: 99008877
 }
-while(i < word.length)
+var student1 = {
+    ner: "Baigal",
+    year: 2,
+    email: "baigal@example.com",
+    number: 99009999
+}
+
+var student2 = {
+    ner: "Мөнгөн-шагай",
+    year: 1,
+    email: "shagai@example.com",
+    number: 99008989
+}
+
+var student3 = {
+    ner: "Choijoo",
+    year: 4,
+    email: "choijoo@example.com",
+    number: 99099999
+}
+
+var student4 = {
+    ner: "Бөхбилигт",
+    year: 2,
+    email: "boh@example.com",
+    number: 99159999
+}
+
+// [{}, {}, {}]
+
+var students = [student, student1, student2, student3, student4];
+
+for(var i = 0; i < students.length; i++){
+    console.log(students[i].email);
+}
+
+// 1. Имэйлээр хайлт хийж тухайн оюутны датаг консолд хэвлэ.
+// 2. Имэйл олдоогүй тохиолдолд хэрэглэгч олдсонгүй гэсэн alert ажиллуул...
+// 3. Мобикомын дугаартай бүх оюутнуудын датаг нэг массивт хадгал
