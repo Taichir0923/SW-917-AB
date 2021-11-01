@@ -189,11 +189,15 @@
 
 // Object - property: value
 
+// [{}, {}, {}]
+
+
+
 var student = {
     ner: "Narada",
     year: 3,
     email: "narada@mail.com",
-    number: 99008877
+    number: 80008877
 }
 var student1 = {
     ner: "Baigal",
@@ -206,7 +210,7 @@ var student2 = {
     ner: "Мөнгөн-шагай",
     year: 1,
     email: "shagai@example.com",
-    number: 99008989
+    number: 88008989
 }
 
 var student3 = {
@@ -223,14 +227,147 @@ var student4 = {
     number: 99159999
 }
 
-// [{}, {}, {}]
-
-var students = [student, student1, student2, student3, student4];
-
-for(var i = 0; i < students.length; i++){
-    console.log(students[i].email);
+var student5 = {
+    ner: "Баяр",
+    year: 2,
+    email: "bayr@example.com",
+    number: 85159999
 }
+var students = [student, student1, student2, student3, student4, student5];
+
+// var email = prompt('Хайх имэйл оруул');
+// var found = false;
+
+// var mobiUsers = [];
+
+// for(var i = 0; i < students.length; i++){
+//     if(email === students[i].email){
+//         console.log(students[i])
+//         found = true;
+//     }
+
+//     if(students[i].number.toString().slice(0, 2) === "99" || students[i].number.toString().slice(0, 2) === "95" || students[i].number.toString().slice(0, 2) === "94" || students[i].number.toString().slice(0, 2) === "85"){
+//         mobiUsers.push(students[i]);
+//     }
+// };
+
+// if(!found){ // true
+//     alert('Хэрэглэгч олдсонгүй')
+// }
 
 // 1. Имэйлээр хайлт хийж тухайн оюутны датаг консолд хэвлэ.
 // 2. Имэйл олдоогүй тохиолдолд хэрэглэгч олдсонгүй гэсэн alert ажиллуул...
 // 3. Мобикомын дугаартай бүх оюутнуудын датаг нэг массивт хадгал
+
+// function
+// function findByEmail(){
+//     var email = prompt('Хайх имэйл оруул');
+//     var found = false;
+//     var result = "Хэрэглэгч олдсонгүй";
+
+//     for(var i = 0; i < students.length; i++){
+//         if(email === students[i].email){
+//             result = students[i];
+//             found = true;
+//         }
+//     };
+
+//     if(found){ // true
+//         return result
+//     }
+
+//     return result;
+// }
+
+// // local variable
+// // global variable
+
+// var y = 12; // global
+
+// function test(){
+//     var x = 5; // local
+//     var kk = 13;
+//     return x + kk
+// }
+
+// var z = test();
+
+// // console.log(x);
+
+// var userFound = findByEmail();
+
+// parameter function
+
+// function nasToots(on){
+//     return 2021 - on;
+// }
+
+// var person1 = nasToots(2001);
+// var person2 = nasToots(2002);
+// var person3 = nasToots(2003);
+
+// оролт: 5 0 0
+// гаралт: 2
+// тайлбар: тэгтэй тэнцүү тоо нэг ширхэг байгаа учир гаралт = 1
+
+function ex1(a, b, c){
+    var counter = 0;
+    if(a === 0){
+        counter++;
+    }
+    if(b === 0){
+        counter++;
+    }
+    if(c === 0){
+        counter++;
+    }
+
+    return counter;
+}
+
+function ex10(number){
+    var result = false;
+    var numString = number.toString();
+    if(number === +numString.split('').reverse().join("")){
+        result = true
+    };
+    return result;
+}
+// 456
+// 654
+function ex101(number){
+    var result = false;
+    var numStr = "";
+
+    for(var i = number.toString().length - 1; i >= 0; i--){
+        numStr += number.toString()[i];
+    }
+
+    if(number === +numStr){
+        result = true
+    }
+
+    return result;
+}
+
+function ex102(number){
+    var result = false;
+    var len = number.toString().length;
+    var arr = []
+    for(var i = 0; i < len; i++){
+        var digit = Math.floor(number / Math.pow(10, i)) % 10;
+        arr.push(digit)
+    }
+
+    if(+arr.join('') === number){
+        result = true
+    }
+
+    return result;
+}
+
+// 123 => 123 / 10**0
+// 123 % 10 => 3
+
+// 123 => 123 / 10**1
+// 12 % 10 => 2
