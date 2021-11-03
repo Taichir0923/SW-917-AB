@@ -472,10 +472,10 @@ var x = [56, ...arr, 100, 101, 102]; // rest operator
 //     console.log(arg)
 // }
 
-function ex5(first, len){
-    var result = [];
-    for(var i = 1; i <= len; i++){
-        result.push(first * i)
-    }
-    return result;
-}
+// function ex5(first, len){
+//     var result = [];
+//     for(var i = 1; i <= len; i++){
+//         result.push(first * i)
+//     }
+//     return result;
+// } 
