@@ -193,47 +193,47 @@
 
 
 
-var student = {
-    ner: "Narada",
-    year: 3,
-    email: "narada@mail.com",
-    number: 80008877
-}
-var student1 = {
-    ner: "Baigal",
-    year: 2,
-    email: "baigal@example.com",
-    number: 99009999
-}
+// var student = {
+//     ner: "Narada",
+//     year: 3,
+//     email: "narada@mail.com",
+//     number: 80008877
+// }
+// var student1 = {
+//     ner: "Baigal",
+//     year: 2,
+//     email: "baigal@example.com",
+//     number: 99009999
+// }
 
-var student2 = {
-    ner: "Мөнгөн-шагай",
-    year: 1,
-    email: "shagai@example.com",
-    number: 88008989
-}
+// var student2 = {
+//     ner: "Мөнгөн-шагай",
+//     year: 1,
+//     email: "shagai@example.com",
+//     number: 88008989
+// }
 
-var student3 = {
-    ner: "Choijoo",
-    year: 4,
-    email: "choijoo@example.com",
-    number: 99099999
-}
+// var student3 = {
+//     ner: "Choijoo",
+//     year: 4,
+//     email: "choijoo@example.com",
+//     number: 99099999
+// }
 
-var student4 = {
-    ner: "Бөхбилигт",
-    year: 2,
-    email: "boh@example.com",
-    number: 99159999
-}
+// var student4 = {
+//     ner: "Бөхбилигт",
+//     year: 2,
+//     email: "boh@example.com",
+//     number: 99159999
+// }
 
-var student5 = {
-    ner: "Баяр",
-    year: 2,
-    email: "bayr@example.com",
-    number: 85159999
-}
-var students = [student, student1, student2, student3, student4, student5];
+// var student5 = {
+//     ner: "Баяр",
+//     year: 2,
+//     email: "bayr@example.com",
+//     number: 85159999
+// }
+// var students = [student, student1, student2, student3, student4, student5];
 
 // var email = prompt('Хайх имэйл оруул');
 // var found = false;
@@ -310,64 +310,172 @@ var students = [student, student1, student2, student3, student4, student5];
 // гаралт: 2
 // тайлбар: тэгтэй тэнцүү тоо нэг ширхэг байгаа учир гаралт = 1
 
-function ex1(a, b, c){
-    var counter = 0;
-    if(a === 0){
-        counter++;
-    }
-    if(b === 0){
-        counter++;
-    }
-    if(c === 0){
-        counter++;
-    }
+// function ex1(a, b, c){
+//     var counter = 0;
+//     if(a === 0){
+//         counter++;
+//     }
+//     if(b === 0){
+//         counter++;
+//     }
+//     if(c === 0){
+//         counter++;
+//     }
 
-    return counter;
-}
+//     return counter;
+// }
 
-function ex10(number){
-    var result = false;
-    var numString = number.toString();
-    if(number === +numString.split('').reverse().join("")){
-        result = true
-    };
-    return result;
-}
-// 456
-// 654
-function ex101(number){
-    var result = false;
-    var numStr = "";
+// function ex10(number){
+//     var result = false;
+//     var numString = number.toString();
+//     if(number === +numString.split('').reverse().join("")){
+//         result = true
+//     };
+//     return result;
+// }
+// // 456
+// // 654
+// function ex101(number){
+//     var result = false;
+//     var numStr = "";
 
-    for(var i = number.toString().length - 1; i >= 0; i--){
-        numStr += number.toString()[i];
-    }
+//     for(var i = number.toString().length - 1; i >= 0; i--){
+//         numStr += number.toString()[i];
+//     }
 
-    if(number === +numStr){
-        result = true
-    }
+//     if(number === +numStr){
+//         result = true
+//     }
 
-    return result;
-}
+//     return result;
+// }
 
-function ex102(number){
-    var result = false;
-    var len = number.toString().length;
-    var arr = []
-    for(var i = 0; i < len; i++){
-        var digit = Math.floor(number / Math.pow(10, i)) % 10;
-        arr.push(digit)
-    }
+// function ex102(number){
+//     var result = false;
+//     var len = number.toString().length;
+//     var arr = []
+//     for(var i = 0; i < len; i++){
+//         var digit = Math.floor(number / Math.pow(10, i)) % 10;
+//         arr.push(digit)
+//     }
 
-    if(+arr.join('') === number){
-        result = true
-    }
+//     if(+arr.join('') === number){
+//         result = true
+//     }
 
-    return result;
-}
+//     return result;
+// }
 
 // 123 => 123 / 10**0
 // 123 % 10 => 3
 
 // 123 => 123 / 10**1
 // 12 % 10 => 2
+
+// Stack - Last in First out - LIFO
+
+// operator - +, -, *, /
+// operand - 123
+
+// parentheses balance
+
+// [] {} ()
+
+// {[(){[]}]({{[]}})}
+
+// callstack
+// callback
+// recursion
+
+
+// stack overflow =? stackoverflow.com
+// maximum callstack size exceeded
+
+// function stack1(){
+//     stack1(); // => returns sth
+// }
+
+// function stack2(){
+//     stack1()
+// }
+
+// 
+// 10 hurtelh toonii niilber
+// function upToNum(num){
+//     if(num === 1){
+//         return num;
+//     }
+//     return num + upToNum(num - 1);
+// }
+
+// callback function - parameter helbereer ashiglaj function
+
+// function testCallback(arg){
+//     console.log(arg)
+// }
+
+// function cb(arg1){
+//     return arg1
+// }
+
+// var arr = [15, 16, 17, 18];
+
+// es6 - forEach, filter, map, findIndex
+// arr.forEach(function(el, index){
+//     console.log(el + " es6: " + index)
+// })
+
+// for(var i = 0; i < arr.length; i++){
+//     printVal(arr[i], i);
+// }
+
+// function printVal(val , index){
+//     console.log(val , index)
+// }
+
+// for in
+// var obj = {
+//     ner: "blabla",
+//     nas: 123,
+//     mergejil: "ghjk"
+// }
+// for(var pro in obj){
+//     console.log(obj[pro])
+//     console.log(pro)
+// }
+
+// function tri(height, base){
+//     return (height * base) / 2
+// };
+
+// function ex4(obj){
+//     var properties = [];
+//     var values = [];
+//     for(var pro in obj){
+//         properties.push(pro);
+//         values.push(obj[pro])
+//     }
+
+//     return [properties, values]
+// }
+
+// rest parameter
+// 5   8
+// 3   4
+// [[[], [], []], [[], [], []], [[], [], []]]
+var arr = [12, 13, 45, 216, 52, 6];
+var x = [56, ...arr, 100, 101, 102]; // rest operator
+
+
+// REST PARAMETER
+// function testRestParameter(...arg){
+//     console.log(arg)
+// }
+
+function ex5(first, len){
+    var result = [];
+    for(var i = 1; i <= len; i++){
+        result.push(first * i)
+    }
+    return result;
+}
