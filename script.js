@@ -463,8 +463,8 @@
 // 5   8
 // 3   4
 // [[[], [], []], [[], [], []], [[], [], []]]
-var arr = [12, 13, 45, 216, 52, 6];
-var x = [56, ...arr, 100, 101, 102]; // rest operator
+// var arr = [12, 13, 45, 216, 52, 6];
+// var x = [56, ...arr, 100, 101, 102]; // rest operator
 
 
 // REST PARAMETER
@@ -479,3 +479,55 @@ var x = [56, ...arr, 100, 101, 102]; // rest operator
 //     }
 //     return result;
 // } 
+
+// function ex6(...boxes){
+//     var sum = 0;
+//     for(var i = 0; i < boxes.length; i++){
+//         var volume;
+
+//         if(boxes[i].length !== 0 && boxes[i].length === 3){
+//             volume = 1
+//             for(var j = 0; j < boxes[i].length; j++){
+//                 volume *= boxes[i][j];
+//             }
+//         } else {
+//             volume = 0
+//         }
+//         sum += volume
+//     }
+//     return sum
+// }
+
+// Sorting Algorithms
+// Эрэмблэх
+
+// Bubble sort
+// Selection sort
+// Insertion Sort
+// Quick sort
+// Radix Sort
+// Quick Radix sort
+// Merge Sort
+
+// Implementing Bubble sort
+
+function bubbleSort(arr){
+    var soligdson = true;
+    for(var i = arr.length - 1; i >= 0; i--){
+        soligdson = false;
+        for(var j = 0; j < i; j++){
+            console.log(arr[j] , arr[j+1])
+            if(arr[j] > arr[j + 1]){
+                var temp = arr[j];
+                arr[j] = arr[j+1]
+                arr[j+1] = temp;
+                soligdson = true;
+            }
+        }
+        console.log('one loop')
+        if(!soligdson){
+            break;
+        }
+    }
+    return arr;
+}
