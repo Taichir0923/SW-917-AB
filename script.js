@@ -1,3 +1,4 @@
+"use strict";
 // Өгөгдлийн төрөл
 // 5 Primitive datatypes
 
@@ -18,13 +19,13 @@
 
 // remainder operator %
 
-// 
+//
 // var x = 5;
 // var y = 6;
 
 // x = x + y; // += 11
 // x += y; // 17
-// x -= y; 
+// x -= y;
 
 // x++; // x = x + 1;
 // x--; // x = x - 1;
@@ -51,7 +52,7 @@
 // var z = "32.5"
 // var sum = x + +z
 
-// bitwise >> << 
+// bitwise >> <<
 
 // https://github.com/Taichir0923/SW-917-AB
 
@@ -81,7 +82,7 @@
 // nas 0-12 baga nas, 13-17, osvor nas
 // 18-25 ider zaluu nas
 // 25-35 zaluu nas
-// 35-50 
+// 35-50
 // if(nas >= 0 && nas <= 12){
 //     console.log('baga nas')
 // } else if (nas >= 13 && nas < 18){
@@ -91,7 +92,7 @@
 // }
 
 // ternary operator
-// nas >= 0 && nas <= 12 ? console.log('baga nas') : 
+// nas >= 0 && nas <= 12 ? console.log('baga nas') :
 // nas >= 13 && nas <= 17 ? console.log('osvor nas') : console.log('adult')
 
 // switch(true){
@@ -139,7 +140,6 @@
 // 10**0 === 1
 // 10**1 === 10
 // 10**2 === 100
-
 
 // var x = 245;
 // var counter = 0;
@@ -190,8 +190,6 @@
 // Object - property: value
 
 // [{}, {}, {}]
-
-
 
 // var student = {
 //     ner: "Narada",
@@ -387,7 +385,6 @@
 // callback
 // recursion
 
-
 // stack overflow =? stackoverflow.com
 // maximum callstack size exceeded
 
@@ -399,7 +396,7 @@
 //     stack1()
 // }
 
-// 
+//
 // 10 hurtelh toonii niilber
 // function upToNum(num){
 //     if(num === 1){
@@ -466,7 +463,6 @@
 // var arr = [12, 13, 45, 216, 52, 6];
 // var x = [56, ...arr, 100, 101, 102]; // rest operator
 
-
 // REST PARAMETER
 // function testRestParameter(...arg){
 //     console.log(arg)
@@ -478,7 +474,7 @@
 //         result.push(first * i)
 //     }
 //     return result;
-// } 
+// }
 
 // function ex6(...boxes){
 //     var sum = 0;
@@ -511,23 +507,143 @@
 
 // Implementing Bubble sort
 
-function bubbleSort(arr){
-    var soligdson = true;
-    for(var i = arr.length - 1; i >= 0; i--){
-        soligdson = false;
-        for(var j = 0; j < i; j++){
-            console.log(arr[j] , arr[j+1])
-            if(arr[j] > arr[j + 1]){
-                var temp = arr[j];
-                arr[j] = arr[j+1]
-                arr[j+1] = temp;
-                soligdson = true;
-            }
-        }
-        console.log('one loop')
-        if(!soligdson){
-            break;
-        }
+function bubbleSort(arr) {
+  var soligdson = true;
+  for (var i = arr.length - 1; i >= 0; i--) {
+    soligdson = false;
+    for (var j = 0; j < i; j++) {
+      console.log(arr[j], arr[j + 1]);
+      if (arr[j] > arr[j + 1]) {
+        var temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        soligdson = true;
+      }
     }
+    console.log("one loop");
+    if (!soligdson) {
+      break;
+    }
+  }
+  return arr;
+}
+
+function selectionSort(arr) {
+  // [56, 2, 0, 15, 6, 78, 12, 123]
+  for (var i = 0; i < arr.length; i++) {
+    var hamgiinBagaIndex = i;
+    for (var j = i + 1; j < arr.length; j++) {
+      if (arr[hamgiinBagaIndex] > arr[j]) {
+        hamgiinBagaIndex = j;
+      }
+    }
+    var temp = arr[hamgiinBagaIndex];
+    arr[hamgiinBagaIndex] = arr[i];
+    arr[i] = temp;
+  }
+
+  return arr;
+}
+
+// gert insertion sort , quick sort
+
+// [56, 2, 0, 15, 6, 78, 12, 123]
+// [56, 2, 0, 15]         [6, 78, 12, 123]
+// [56, 2]  [0, 15]      [6, 78]  [12, 123]
+// [56] [2]   [0] [15]   [6] [78]   [12][123]
+// [2, 56] [0, 15]       [6, 78] [12, 123]
+// [0, 2, 15, 56]   [6, 12, 78, 123]
+// [0, 2, 6, 12, 15, 56, 78, 123]
+function mergeArr(left, right) {
+  // helper function
+  var result = [];
+  var i = 0;
+  var j = 0;
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      result.push(left[i]);
+      i++;
+    } else {
+      result.push(right[j]);
+      j++;
+    }
+  }
+
+  for (i; i < left.length; i++) {
+    result.push(left[i]);
+  }
+
+  for (j; j < right.length; j++) {
+    result.push(right[j]);
+  }
+
+  return result;
+}
+
+function mergeSort(arr) {
+  if (arr.length === 1) {
     return arr;
+  }
+  var goliinIndex = Math.floor(arr.length / 2); // [1, 2, 3, 4]
+  var left = mergeSort(arr.slice(0, goliinIndex));
+  var right = mergeSort(arr.slice(goliinIndex));
+  return mergeArr(left, right);
+}
+
+// function ex1(){
+//     ex1()
+// }
+
+// function ex2(){
+//     ex1()
+// }
+
+// function ex3(){
+//     console.log(123)
+// }
+
+// ex2()
+// 10 ** 0 => 1
+// 10 ** 1 => 10
+// 10 ** 2 => 100
+
+function getDigit(num, i) {
+  // 2350, 10
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
+
+function countDigit(num) {
+  if (num === 0) {
+    return 1;
+  }
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+
+// lg4325 = 3+1
+
+function mostDigit(arr) {
+  var mostDigit = 0;
+  for (var i = 0; i < arr.length; i++) {
+    mostDigit = Math.max(mostDigit, countDigit(arr[i]));
+  }
+
+  return mostDigit;
+}
+
+// [123, 75212, 0, 12, 10, 5, 18, 235, 0, 11, 1452, 235]
+
+function radixSort(arr) {
+  var numToLoop = mostDigit(arr);
+  for (var i = 0; i < numToLoop; i++) {
+    var sav = Array.from({ length: 10 }, function () {
+      return [];
+    });
+    for(var j = 0; j < arr.length; j++){
+        var indexToPush = getDigit(arr[j], i);
+        sav[indexToPush].push(arr[j])
+    }
+    arr = [].concat(...sav);
+  }
+
+  return arr;
 }
