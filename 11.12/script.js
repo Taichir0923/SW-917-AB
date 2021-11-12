@@ -47,3 +47,9 @@ function clearStyle (){
 // 2. heading tag dotor class nemj ogoh function bich
 // 3. button tag-n onclick attribute dotor function duudah
 
+
+// busar selectors
+// event
+// create element
+
+// 
