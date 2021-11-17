@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.wrap .box {
+    height: 250px;
+    background-color: burlywood;
+    border-radius: 10px;
+}
+
+
+.form {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.form input {
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.btn {
+    padding: .5rem 2rem;
+    font-size: 20px;
+    background-color: orangered;
+    color: white;
+    border-radius: 20px;
+    border: none;
+}
