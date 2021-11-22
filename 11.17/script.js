@@ -1,7 +1,8 @@
 // Document 
 const wrap = document.querySelector('.wrap');
 const imgPath = document.querySelector('#img');
-const btn = document.querySelector('.btn')
+const btn = document.querySelector('.btn');
+const backdrop = document.querySelector('.backdrop')
 // const zurag = document.createElement('img')
 // zurag.setAttribute('src', 'gfdjk')
 
@@ -46,25 +47,55 @@ const btn = document.querySelector('.btn')
 
 // wrap.insertAdjacentHTML('afterend', "<h1>next sibling</h1>")
 
+// []
+// index++
+
 btn.addEventListener('click', function(){
     createBox()
+    imgPath.value = '';
 }) // 1. event , 2. callback
 function createBox(){
-    wrap.insertAdjacentHTML('afterbegin', `
-        <div class="box">
-            <i id="delete" class="fas fa-times"></i>
-            <img src="${imgPath.value}">
-        </div>
-    `)
+    if(imgPath.value.trim() !== ''){
+        wrap.insertAdjacentHTML('afterbegin', `
+            <div class="box">
+                <i id="delete" class="fas fa-times"></i>
+                <img id='zurag' src="${imgPath.value}">
+            </div>
+        `)
+
+        imgPath.value = ''
+    } else {
+        alert('zurag oldsongui')
+    }
 }
 
 // event listener
 
 document.addEventListener('click', function(event){
     if(event.target.id === "delete"){
-        console.log(event.target.parentNode.remove())
+        event.target.parentNode.remove()
+    }
+    if(event.target.id === 'zurag'){
+        backdrop.children[0].children[0].src = event.target.src
+        backdrop.classList.add('modalOpen');
+    }
+
+    if(event.target.id === 'close' || event.target.classList.contains('modalOpen')){
+        backdrop.classList.remove('modalOpen');
+    }
+
+})
+
+document.addEventListener('keydown' , function(event){
+    if(event.keyCode === 13){
+        createBox();
+    }
+    if(event.keyCode === 27){
+        backdrop.classList.remove('modalOpen');
     }
 })
 
-
 // modal box hiine
+
+// getElementsByClassName - HTML Collections
+// querySelectorAll - NodeList
