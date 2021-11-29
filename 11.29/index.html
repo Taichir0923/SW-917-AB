@@ -5,9 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <input type="text" id="input">
+<body class="w-full h-screen flex justify-center items-center bg-gray-100">
+    <div class="bg-white rounded-xl p-4 flex flex-col">
+        <label>Password</label>
+        <input class="py-3 px-4 rounded-xl bg-gray-100 mb-4" type="text" id="input">
+        <p class="text-red-400 requirement">Жижиг үсэг орсон байх</p>
+        <p class="text-red-400 requirement">Том үсэг орсон байх</p>
+        <p class="text-red-400 requirement">Тоо орсон байх</p>
+        <p class="text-red-400 requirement">Тэмдэгт орсон байх - !@#$%^&*</p>
+        <p class="text-red-400 requirement">Хамгийн багадаа 8 тэмдэгт орсон байх</p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -31,19 +31,40 @@
 // console.log(sentence.match(hasToo));
 // console.log(hasCapLetter.test(sentence));
 
-const input = document.querySelector('#input')
+const input = document.querySelector('#input');
+const ptags = document.querySelectorAll('.requirement')
 
 input.addEventListener('input', function(){
-    var hasToo = /\d/;
-    if(hasToo.test(input.value)){
-        console.log('too aguulsan bna...')
+    var regEx = [/[a-z]/ , /[A-Z]/ , /\d/ , /\W/ , /.{8,}/ ];
+    regEx.forEach((rxp , index) => {
+        if(rxp.test(input.value)){
+            ptags[index].classList.remove('text-red-400');
+            ptags[index].classList.add('text-gray-400');
+            ptags[index].classList.add('line-through');
+        } else {
+            ptags[index].classList.add('text-red-400');
+            ptags[index].classList.remove('text-gray-400');
+            ptags[index].classList.remove('line-through');
+        }
+    });
+
+    var regExpGeneral = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)(?=.{8,})/;
+    if(regExpGeneral.test(input.value)){
+        console.log(true)
     }
 })
 
 // password strength shalgah programm bichih
-
+// new Array
 // 1. Zaaval jijig useg orson bh
 // 2. Zaaval tom useg orson bn
 // 3. Zaaval too orson bh
 // 4. Zaaval temdegt orson bh
 // 5. hamgiin bagadaa 8 elementtei bh 
+
+// HEX code shalgah Regular Expressions bichih
+
+// #ff0000
+// #f00
+// #ff0
+// #0f0
