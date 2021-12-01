@@ -50,30 +50,56 @@ const backdrop = document.querySelector('.backdrop')
 // []
 // index++
 
+var imgArr = [
+    {
+        url: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        id: +Math.random().toString().split('.')[1]
+    },
+    {
+        url: 'https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg',
+        id: +Math.random().toString().split('.')[1]
+    },
+    {
+        url: 'https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270',
+        id: +Math.random().toString().split('.')[1]
+    }
+]
+
 btn.addEventListener('click', function(){
     createBox()
     imgPath.value = '';
 }) // 1. event , 2. callback
 function createBox(){
-    if(imgPath.value.trim() !== ''){
-        wrap.insertAdjacentHTML('afterbegin', `
+    imgArr.push({
+        url: imgPath.value,
+        id: +Math.random().toString().split('.')[1]
+    })
+    updateUi();
+}
+
+function updateUi(){
+    wrap.innerHTML = '';
+    imgArr.forEach(function(img){
+        wrap.insertAdjacentHTML('beforeend' , `
             <div class="box">
                 <i id="delete" class="fas fa-times"></i>
-                <img id='zurag' src="${imgPath.value}">
+                <input value=${img.id} hidden />
+                <img id='zurag' src="${img.url}">
             </div>
         `)
-
-        imgPath.value = ''
-    } else {
-        alert('zurag oldsongui')
-    }
+    })
 }
+
+updateUi()
 
 // event listener
 
 document.addEventListener('click', function(event){
     if(event.target.id === "delete"){
-        event.target.parentNode.remove()
+        // event.target.parentNode.remove()
+        const imgId = +event.target.nextElementSibling.value;
+        imgArr = imgArr.filter(img => img.id !== imgId);
+        updateUi()
     }
     if(event.target.id === 'zurag'){
         backdrop.children[0].children[0].src = event.target.src
