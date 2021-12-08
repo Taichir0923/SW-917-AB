@@ -5,5 +5,9 @@ function calculate(){
 }
 
 function printNums(num){
-    input.value += num;
+    if(num === '='){
+        calculate()
+    } else {
+        input.value += num;
+    }
 }
