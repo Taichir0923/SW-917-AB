@@ -84,3 +84,12 @@ const question = new Quiz('Улаанбаатар хот хэдэн онд ба�
 const question1 = new Quiz('Монгол хэлний цагаан толгой хэдэн үсэгтэй вэ?' , [26 , 33 , 21 , 35] , 3);
 
 // 5 asuult uusgeed, buh asuultiig daraallaar n garaj ireh
+
+const questions = [question , question1];
+
+function init(){
+    questions.forEach(asuult => {
+        asuult.printQuestion();
+        asuult.checkAnswer(+prompt('Зөв хариултыг оруул...'))
+    })
+}
