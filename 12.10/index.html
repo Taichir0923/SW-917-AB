@@ -5,9 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+    <div class="flex justify-center items-center h-screen bg-gray-100">
+        <div class="py-4 px-8 bg-white w-3/5 rounded-xl">
+            <h1 class="font-bold text-2xl text-gray-700">Is Javascript programming language?</h1>
+
+            <div class="flex flex-col gap-4 mt-5">
+                <div class="flex gap-3 items-center">
+                    <input name="answer" id="answer" type="radio">
+                    <label class="text-lg" for="answer">Yes!</label>
+                </div>
+                <div class="flex gap-3 items-center">
+                    <input name="answer" id="answer1" type="radio">
+                    <label class="text-lg" for="answer1">No!</label>
+                </div>
+                <div class="flex gap-3 items-center">
+                    <input name="answer" id="answer2" type="radio">
+                    <label class="text-lg" for="answer2">I don't know!</label>
+                </div>
+                <div class="flex gap-3 items-center">
+                    <input name="answer" id="answer3" type="radio">
+                    <label class="text-lg" for="answer3">Maybe!</label>
+                </div>
+            </div>
+
+            <div class="flex justify-between mt-5">
+                <button class="py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30">Previos</button>
+                <button class="py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30">Next</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

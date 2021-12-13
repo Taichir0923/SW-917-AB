@@ -59,24 +59,80 @@
  * }
  */
 
-function Quiz(question , answers , correctAnswer){
-    this.question = question,
-    this.answers = answers,
-    this.correctAnswer = correctAnswer
-}
+// function Quiz(question , answers , correctAnswer){
+//     this.question = question,
+//     this.answers = answers,
+//     this.correctAnswer = correctAnswer
+// }
 
-Quiz.prototype.printQuestion = function(){
-    console.log(this.question);
-    for(let i = 0; i < this.answers.length; i++){
-        console.log(`${i}: ${this.answers[i]}`)
+// Quiz.prototype.printQuestion = function(){
+    // console.log(this.question);
+    // for(let i = 0; i < this.answers.length; i++){
+    //     console.log(`${i}: ${this.answers[i]}`)
+    // }
+// }
+
+// Quiz.prototype.checkAnswer = function(hariu){
+//     if(hariu === this.correctAnswer){
+//         console.log('Зөв хариуллаа. Баяр хүргэе')
+//     } else {
+//         console.log('Буруу хариуллаа. Дахин оролдоно уу...')
+//     }
+// }
+
+// const question = new Quiz('Улаанбаатар хот хэдэн онд байгуулагдсан бэ?' , [1760 , 1639 , 1921 , 1991] , 1);
+// const question1 = new Quiz('Монгол хэлний цагаан толгой хэдэн үсэгтэй вэ?' , [26 , 33 , 21 , 35] , 3);
+
+// // 5 asuult uusgeed, buh asuultiig daraallaar n garaj ireh
+
+// const questions = [question , question1];
+
+// function init(){
+//     questions.forEach(asuult => {
+//         asuult.printQuestion();
+//         asuult.checkAnswer(+prompt('Зөв хариултыг оруул...'))
+//     })
+// }
+
+// ES6
+// let , const , () => {} , `` , {}
+
+// class 
+
+// function User(username , email){
+//     this.username = username,
+//     this.email = email
+// }
+
+// User.prototype.getName = function(){
+//     return this.username;
+// }
+
+// methodical function - static
+// protypical function - object-s handdag function
+
+
+
+class Quiz {
+    constructor(question , answers, correctAnswer){
+        this.question = question;
+        this.answers = answers;
+        this.correctAnswer = correctAnswer
     }
-}
 
-Quiz.prototype.checkAnswer = function(hariu){
-    if(hariu === this.correctAnswer){
-        console.log('Зөв хариуллаа. Баяр хүргэе')
-    } else {
-        console.log('Буруу хариуллаа. Дахин оролдоно уу...')
+    printQuestion(){
+        console.log(this.question);
+        for(let i = 0; i < this.answers.length; i++){
+            console.log(`${i}: ${this.answers[i]}`)
+        }
+    }
+
+    checkAnswer(hariu){
+        if(hariu === this.correctAnswer){
+            console.log('Зөв хариуллаа. Баяр хүргэе')
+        } else {
+            console.log('Буруу хариуллаа. Дахин оролдоно уу...')
+        }
     }
 }
 
