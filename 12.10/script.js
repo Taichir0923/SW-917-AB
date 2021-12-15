@@ -121,6 +121,7 @@ class Quiz {
         this.answers = answers;
         this.correctAnswer = correctAnswer;
         this.correct = false;
+        this.selected = null;
     }
 
     printQuestion(q , list){
@@ -138,10 +139,11 @@ class Quiz {
     checkAnswer(hariu){
         if(hariu === this.correctAnswer){
             console.log('Зөв хариуллаа. Баяр хүргэе')
-            this.correct = true
+            this.correct = true;
         } else {
             console.log('Буруу хариуллаа. Дахин оролдоно уу...')
         }
+        this.selected = hariu;
     }
 }
 
@@ -190,13 +192,18 @@ function init(){
         questions[i].printQuestion(q , li);
         btnNext.addEventListener('click' , () => {
             const inp = document.querySelector('input[name="answer"]:checked');
-            const answer = +inp.id.split('_')[1]
-            questions[i].checkAnswer(answer);
-            if(i === questions.length - 1){
-                return
+            if(inp){
+                const answer = +inp.id.split('_')[1]
+                questions[i].checkAnswer(answer);
+                if(i === questions.length - 1){
+                    return
+                }
+                i++;
+                start()
+            } else {
+                i++;
+                start()
             }
-            i++;
-            start()
         })
     }
     start()
