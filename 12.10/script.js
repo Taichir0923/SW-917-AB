@@ -111,6 +111,8 @@
 // methodical function - static
 // protypical function - object-s handdag function
 
+const questionContainer = document.querySelector('#questionContainer')
+
 
 
 class Quiz {
@@ -120,10 +122,15 @@ class Quiz {
         this.correctAnswer = correctAnswer
     }
 
-    printQuestion(){
-        console.log(this.question);
+    printQuestion(q , list){
+        q.innerHTML = this.question;
         for(let i = 0; i < this.answers.length; i++){
-            console.log(`${i}: ${this.answers[i]}`)
+            list.insertAdjacentHTML('beforeend' , `
+                <div class="flex gap-3 items-center">
+                    <input name="answer" id="answer_${i}" type="radio">
+                    <label class="text-lg" for="answer_${i}">${this.answers[i]}</label>
+                </div>
+            `)
         }
     }
 
@@ -145,7 +152,27 @@ const questions = [question , question1];
 
 function init(){
     questions.forEach(asuult => {
-        asuult.printQuestion();
+        questionContainer.innerHTML = '';
+        const q = document.createElement('h1');
+        q.className = 'font-bold text-2xl text-gray-700';
+        questionContainer.append(q);
+        asuult.printQuestion(q);
         asuult.checkAnswer(+prompt('Зөв хариултыг оруул...'))
     })
 }
+
+questionContainer.innerHTML = '';
+const q = document.createElement('h1');
+const li = document.createElement('div');
+li.className = 'flex flex-col gap-4 mt-5';
+q.className = 'font-bold text-2xl text-gray-700';
+questionContainer.append(q);
+questionContainer.append(li);
+questionContainer.insertAdjacentHTML('beforeend' , `
+    <div class="flex justify-between mt-5">
+        <button class="py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30">Previos</button>
+        <button class="py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30">Next</button>
+    </div>
+`)
+
+questions[0].printQuestion(q , li);
