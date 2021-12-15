@@ -119,7 +119,8 @@ class Quiz {
     constructor(question , answers, correctAnswer){
         this.question = question;
         this.answers = answers;
-        this.correctAnswer = correctAnswer
+        this.correctAnswer = correctAnswer;
+        this.correct = false;
     }
 
     printQuestion(q , list){
@@ -137,6 +138,7 @@ class Quiz {
     checkAnswer(hariu){
         if(hariu === this.correctAnswer){
             console.log('Зөв хариуллаа. Баяр хүргэе')
+            this.correct = true
         } else {
             console.log('Буруу хариуллаа. Дахин оролдоно уу...')
         }
@@ -151,28 +153,51 @@ const question1 = new Quiz('Монгол хэлний цагаан толгой 
 const questions = [question , question1];
 
 function init(){
-    questions.forEach(asuult => {
+    let i = 0;
+    function start(){
+        if(i === questions.length) return;
         questionContainer.innerHTML = '';
         const q = document.createElement('h1');
+        const li = document.createElement('div');
+        const btnContainer = document.createElement('div');
+        const btnNext = document.createElement('button');
+        const btnPrev = document.createElement('button');
+        
+        
+        
+        btnContainer.className = 'flex justify-between mt-5';
+        btnNext.className = 'py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30';
+        btnPrev.className = 'py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30';
+        btnNext.textContent = 'Next';
+        btnPrev.textContent = 'Prev';
+        btnNext.id = 'next';
+        btnPrev.id = 'prev';
+
+        if(i === questions.length - 1){
+            btnNext.innerText = 'Дуусгах'
+        }
+        
+        btnContainer.append(btnPrev)
+        btnContainer.append(btnNext)
+        
+        li.className = 'flex flex-col gap-4 mt-5';
         q.className = 'font-bold text-2xl text-gray-700';
         questionContainer.append(q);
-        asuult.printQuestion(q);
-        asuult.checkAnswer(+prompt('Зөв хариултыг оруул...'))
-    })
-}
-
-questionContainer.innerHTML = '';
-const q = document.createElement('h1');
-const li = document.createElement('div');
-li.className = 'flex flex-col gap-4 mt-5';
-q.className = 'font-bold text-2xl text-gray-700';
-questionContainer.append(q);
-questionContainer.append(li);
-questionContainer.insertAdjacentHTML('beforeend' , `
-    <div class="flex justify-between mt-5">
-        <button class="py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30">Previos</button>
-        <button class="py-3 px-8 transition duration-300 hover:text-white hover:bg-opacity-100 rounded-xl border-2 border-indigo-500 bg-indigo-500 text-indigo-500 font-bold bg-opacity-30">Next</button>
-    </div>
-`)
-
-questions[0].printQuestion(q , li);
+        questionContainer.append(li);
+        questionContainer.append(btnContainer)
+        
+        
+        questions[i].printQuestion(q , li);
+        btnNext.addEventListener('click' , () => {
+            const inp = document.querySelector('input[name="answer"]:checked');
+            const answer = +inp.id.split('_')[1]
+            questions[i].checkAnswer(answer);
+            if(i === questions.length - 1){
+                return
+            }
+            i++;
+            start()
+        })
+    }
+    start()
+};
