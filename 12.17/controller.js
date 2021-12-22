@@ -1,6 +1,11 @@
 import { User } from "./model.js";
-const users = [];
 export function registerUser(obj){
+    let users;
+    if(localStorage['users']){
+        users = JSON.parse(localStorage['users'])
+    } else {
+        users = [];
+    }
     const {username , email , number , avatar , password} = obj;
     const user = new User(username , email , number , avatar , password);
     user.register(users)
