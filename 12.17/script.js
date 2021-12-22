@@ -9,33 +9,33 @@
 
 // IIFE - Immediately Invoked Function Expression
 
-const iife = (() => {
-    return 12
-})()
+// const iife = (() => {
+//     return 12
+// })()
 
-const model = (() => {
-    class Quiz {
-        constructor(question){
-            this.question = question
-        }
-    }
+// const model = (() => {
+//     class Quiz {
+//         constructor(question){
+//             this.question = question
+//         }
+//     }
 
-    class Student {
-        constructor(username){
-            this.username = username
-        }
-    }
+//     class Student {
+//         constructor(username){
+//             this.username = username
+//         }
+//     }
 
-    return {
-        Quiz: Quiz,
-        User: Student
-    }
-})()
+//     return {
+//         Quiz: Quiz,
+//         User: Student
+//     }
+// })()
 
-const ui = (() => {
-    const question = new model.Quiz('How are you?');
-    question.printQuestion(document.body)
-})()
+// const ui = (() => {
+//     const question = new model.Quiz('How are you?');
+//     question.printQuestion(document.body)
+// })()
 
 
 // const student = new model.User('Narada')
@@ -55,3 +55,32 @@ const ui = (() => {
 //         }
 //     }
 // }
+
+// Гэрт , export , import
+// named export , default export
+
+
+// JavaScript - Destruction
+
+// array destruction
+// let arr = [12 , 13 , 14];
+// let [,, z] = arr;
+// // console.log(z);
+
+// // object destruction
+// let obj = {
+//     ner: "Narada",
+//     mergejil: 'designer',
+//     data: '12-14-18'
+// }
+
+// let { mergejil , ner: username , data } = obj;
+// let {data: haha} = localStorage
+
+// 1. Хэрэглэгч бүртгэх
+
+// username , email , password , id , number
+
+// Model - өгөгдлийн загварыг гаргах
+// controller - хэрэглэгч бүртгэх функц
+// View - DOM элементүүдийг программчлах
