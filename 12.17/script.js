@@ -84,3 +84,13 @@
 // Model - өгөгдлийн загварыг гаргах
 // controller - хэрэглэгч бүртгэх функц
 // View - DOM элементүүдийг программчлах
+
+import { registerUser } from "./controller.js";
+
+registerUser({
+    username: 'blabla',
+    email: 'narada@mail.com',
+    number: 99887766,
+    avatar: 'bjkghsfdkjgs',
+    password: 'jdfjgfhsk'
+})
