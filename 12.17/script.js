@@ -97,5 +97,3 @@ form.addEventListener('submit' , e => {
         password: 'jdfjgfhsk'
     })
 })
-
-login({email: 'narada@mail.com' , password: 'jdfjgfhsk'})

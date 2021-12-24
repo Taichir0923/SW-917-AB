@@ -7,18 +7,21 @@
     <title>Document</title>
 </head>
 <body>
+    Account
     <script type="module">
-        import {login} from './controller.js'
-        init()
-
+        let currentUser
         function init(){
             if(localStorage.currentUser){
-                location.pathname = '/account.html'
+                currentUser = JSON.parse(localStorage.currentUser)
+            } else {
+                location.pathname = '/login.html'
             }
         }
-
-        // login({email: 'narada@mail.com', password: 'jdfjgfhsk'})
-
+        init()
+        console.log(currentUser)
+        document.body.insertAdjacentHTML('afterbegin' , `
+            <h1>${currentUser.username}</h1>
+        `)
     </script>
 </body>
 </html>
