@@ -84,13 +84,18 @@
 // Model - өгөгдлийн загварыг гаргах
 // controller - хэрэглэгч бүртгэх функц
 // View - DOM элементүүдийг программчлах
+const form = document.querySelector('#form');
+import { registerUser , login } from "./controller.js";
 
-import { registerUser } from "./controller.js";
-
-registerUser({
-    username: 'blabla',
-    email: 'narada@mail.com',
-    number: 99887766,
-    avatar: 'bjkghsfdkjgs',
-    password: 'jdfjgfhsk'
+form.addEventListener('submit' , e => {
+    e.preventDefault();
+    registerUser({
+        username: 'blabla',
+        email: 'narada@mail.com',
+        number: 99887766,
+        avatar: 'bjkghsfdkjgs',
+        password: 'jdfjgfhsk'
+    })
 })
+
+login({email: 'narada@mail.com' , password: 'jdfjgfhsk'})

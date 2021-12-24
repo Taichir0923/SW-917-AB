@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="form">
-        <input type="text" id="username" placeholder="Username">
-        <button type="submit">Бүртгэх</button>
-    </form>
-    <script type="module" src="script.js"></script>
+    <script type="module">
+        import {login} from './controller.js'
+
+        login({email: 'gjfk' , password: 'gfdnjk'})
+    </script>
 </body>
 </html>
