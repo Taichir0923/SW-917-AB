@@ -5,11 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
-<body>
+<body class="w-full bg-gray-100 h-screen flex items-center justify-center">
+
+    <form class="bg-white p-4 rounded-xl flex flex-col" id="form">
+        <input class="bg-gray-100 mb-4 rounded-md border py-2 px-4" type="text" id="email" placeholder="Email">
+
+        <input class="bg-gray-100 rounded-md border py-2 px-4" type="password" id="password" placeholder="Password">
+
+        <div class="w-full mb-4 mt-1 flex justify-between items-center">
+            <p class="text-xs">Нууц үг мартсан</p>
+            <p class="text-xs">
+                <a href="./index.html">Бүртгүүлэх</a>
+            </p>
+        </div>
+
+        <button class="bg-indigo-500 text-white py-2 px-4 rounded-md" type="submit">Нэвтрэх</button>
+    </form>
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+    </script>
     <script type="module">
-        import {login} from './controller.js'
-        init()
+        const button = document.querySelector('button[type=submit]');
+        const email = document.querySelector('#email');
+        const password = document.querySelector('#password');
+        import {login} from './controller.js';
+        init();
 
         function init(){
             if(localStorage.currentUser){
@@ -17,6 +49,15 @@
             }
         }
 
+        button.addEventListener('click' , e => {
+            e.preventDefault();
+            if(email.value.trim() !== '' && password.value.trim() !== ''){
+                login({
+                    email: email.value,
+                    password: password.value
+                })
+            }
+        })
         // login({email: 'narada@mail.com', password: 'jdfjgfhsk'})
 
     </script>

@@ -85,15 +85,48 @@
 // controller - хэрэглэгч бүртгэх функц
 // View - DOM элементүүдийг программчлах
 const form = document.querySelector('#form');
-import { registerUser , login } from "./controller.js";
+const username = document.querySelector('#username');
+const email = document.querySelector('#email');
+const password = document.querySelector('#password');
+const passwordConfirm = document.querySelector('#passwordConfirm');
+const avatar = document.querySelector('#avatar');
+const number = document.querySelector('#number');
+import { registerUser } from "./controller.js";
+import { resetForm } from './views.js';
+
 
 form.addEventListener('submit' , e => {
     e.preventDefault();
-    registerUser({
-        username: 'blabla',
-        email: 'narada@mail.com',
-        number: 99887766,
-        avatar: 'bjkghsfdkjgs',
-        password: 'jdfjgfhsk'
-    })
+    if(
+        username.value.trim() !== '' &&
+        email.value.trim() !== '' &&
+        number.value.trim() !== '' &&
+        avatar.value.trim() !== '' &&
+        password.value.trim() !== '' &&
+        passwordConfirm.value.trim() !== ''
+    ) {
+        if(password.value === passwordConfirm.value){
+            registerUser({
+                username: username.value,
+                email: email.value,
+                number: number.value,
+                avatar: avatar.value,
+                password: password.value
+            });
+            swal('Амжилттай бүртгэгдлээ' , {
+                icon: 'success'
+            })
+            resetForm(username , email , number , avatar , passwordConfirm , password);
+        } else {
+            swal({
+                icon: 'warning',
+                text: 'Нууц үг таарахгүй байна',
+                title: 'Уучлаарай'
+            })
+        }
+    } else {
+        swal('Уучлаарай өгөгдөл дутуу байна', {
+            icon: 'warning'
+        })
+    }
 })
