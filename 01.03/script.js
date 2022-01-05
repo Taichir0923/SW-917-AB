@@ -47,6 +47,17 @@ class Node {
     }
 }
 
+// Stack
+// QUEUE
+
+// Tree
+
+// Matrix
+// Graph
+
+
+// [12 , 13 , 14 , 15]
+
 class SinglyLinkedList {
     constructor(){
         this.head = null;
@@ -89,6 +100,27 @@ class SinglyLinkedList {
             }
             newTail.next = null;
             this.tail = newTail
+        }
+
+        this.length--;
+        return deleteNode.val;
+    }
+
+    shift(){
+        if(!this.length){
+            return undefined;
+        }
+
+        let deleteNode;
+
+        if(this.length === 1){
+            deleteNode = this.head;
+            this.head = null;
+            this.tail = null;
+        } else {
+            deleteNode = this.head;
+            this.head = deleteNode.next;
+            deleteNode.next = null;
         }
 
         this.length--;
