@@ -126,6 +126,34 @@ class SinglyLinkedList {
         this.length--;
         return deleteNode.val;
     }
+
+    unshift(val){
+        const node = new Node(val);
+        if(!this.length){
+            this.head = node;
+            this.tail = this.head;
+        } else {
+            const oldHead = this.head;
+            node.next = oldHead;
+            this.head = node;
+        }
+
+        this.length++;
+        return this.length;
+    }
+
+    get(index){
+        if(index < 0 || index >= this.length){
+            return null;
+        }
+        let counter = 0;
+        let node = this.head;
+        while(counter < index){
+            node = node.next;
+            counter++;
+        }
+        return node;
+    }
 }
 
 const sll = new SinglyLinkedList();
