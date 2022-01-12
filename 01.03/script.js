@@ -43,7 +43,7 @@
 class Node {
     constructor(val){
         this.val = val;
-        this.next = null
+        this.next = null;
     }
 }
 
@@ -154,6 +154,26 @@ class SinglyLinkedList {
         }
         return node;
     }
+
+    set(index , value){
+        let nodeToChange = this.get(index);
+        if(!nodeToChange) return false;
+        nodeToChange.val = value;
+        return true;
+    }
+
+    insert(index , value){
+        if(index < 0 || index > this.length) return false;
+        if(index === 0) return this.unshift(value);
+        if(index === this.length) return this.push(value);
+
+        const node = new Node(value);
+        const prev = this.get(index - 1);
+        node.next = prev.next;
+        prev.next = node;
+        this.length++;
+        return this.length;
+    }
 }
 
 const sll = new SinglyLinkedList();
@@ -164,3 +184,13 @@ sll.push(15);
 sll.push(16);
 
 // shift , unshift functsuudiig bichih.
+
+
+// insert
+// remove
+
+// reverse
+// print
+
+
+// dll - pop , push , shift , unshift , get , set , insert , remove , print , reverse()
