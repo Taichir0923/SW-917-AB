@@ -64,9 +64,9 @@ class BudgetApp {
     }
 
     clearForm(){
-        this.description.value == '';
-        this.amount.value == '';
-        this.date.value == ''
+        this.description.value = '';
+        this.amount.value = '';
+        this.date.value = ''
     }
 
     updateUI(){
