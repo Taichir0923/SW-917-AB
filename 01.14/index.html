@@ -60,17 +60,26 @@
         <div class="mx-auto text-center py-20">
             <div class="bg-gradient-to-br w-80 shadow-xl flex flex-col justify-center items-center mx-auto rounded-xl h-48 from-yellow-300 to-orange-400">
                 <p class="font-bold text-gray-700">Үлдэгдэл:</p>
-                <h1 class="text-4xl text-white">2000000</h1>
+                <h1 id="balance" class="text-4xl text-white">673489</h1>
             </div>
         </div>
         <div class="w-full mb-4 flex items-center justify-between px-12">
-            <div class="w-80 bg-gradient-to-br shadow-xl font-bold from-orange-400 to-red-500 py-4 px-6 rounded-xl text-white">Нийт зарлага: 47238</div>
-            <div class="w-80 bg-gradient-to-br shadow-xl font-bold from-teal-300 to-green-500 py-4 px-6 rounded-xl text-white">Нийт орлого: 547389</div>
+            <div id="expence" class="w-80 bg-gradient-to-br shadow-xl font-bold from-orange-400 to-red-500 py-4 px-6 rounded-xl text-white">Нийт зарлага: 47238</div>
+            <div id="income" class="w-80 bg-gradient-to-br shadow-xl font-bold from-teal-300 to-green-500 py-4 px-6 rounded-xl text-white">Нийт орлого: 547389</div>
         </div>
         <div class="w-full px-8 flex-1 flex flex-col">
-            <div class="flex w-full items-center justify-between">
-                <p>filter</p>
-                <p>filter</p>
+            <div class="flex w-full mb-2 items-center justify-between">
+                <select id="filter" class="py-2 px-4 bg-white border border-[#333] focus:outline-none rounded-md">
+                    <option value="all">Бүгд</option>
+                    <option value="income">Орлого</option>
+                    <option value="expence">Зарлага</option>
+                </select>
+                <select id="sort" class="py-2 px-4 bg-white border border-[#333] focus:outline-none rounded-md">
+                    <option value="fromstart">Хамгийн эхнээс</option>
+                    <option value="fromend">Хамгийн сүүлээс</option>
+                    <option value="increase">Өсөх</option>
+                    <option value="decrease">Буурах</option>
+                </select>
             </div>
             <div class="w-full flex-1">
                 <table class="border-t-2 w-full">

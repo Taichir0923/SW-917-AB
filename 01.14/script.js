@@ -8,7 +8,11 @@ class BudgetApp {
     insert;
     type;
     budget;
-    table
+    table;
+    balance;
+    income;
+    expence;
+    filter
     constructor(){
         this.insertButton = document.querySelector('#insert');
         this.modal = document.querySelector('.backdrop');
@@ -18,11 +22,15 @@ class BudgetApp {
         this.date = document.querySelector("#date");
         this.type = document.querySelector("#type");
         this.table = document.querySelector("#table");
+        this.balance = document.querySelector("#balance");
+        this.income = document.querySelector("#income");
+        this.expence = document.querySelector("#expence");
+        this.filter = document.querySelector("#filter");
         this.insert = document.querySelector("#insertBtn");
         this.budget = [];
 
         this.open();
-        this.updateUI()
+        this.updateUI(this.budget)
     }
 
     openModal(){
@@ -47,7 +55,7 @@ class BudgetApp {
                 id: Math.random().toString().split('.')[1]
             }
             this.budget.push(formData);
-            this.updateUI();
+            this.updateUI(this.budget);
             this.clearForm();
             this.closeHandler();
         } else {
@@ -55,12 +63,26 @@ class BudgetApp {
         }
     }
 
+    filterHandler(){
+        this.updateUI(this.budget.filter(bud => {
+            if(this.filter.value == 'expence'){
+                return bud.type === '-'
+            } else if (this.filter.value == 'income'){
+                return bud.type === '+'
+            } else {
+                return true;
+            }
+        }))
+    }
+
     open(){
         this.insertButton.addEventListener('click' , this.openModal.bind(this));
 
         this.closeModal.addEventListener('click' , this.closeHandler.bind(this));
 
-        this.insert.addEventListener('click', this.insertHandler.bind(this))
+        this.insert.addEventListener('click', this.insertHandler.bind(this));
+
+        this.filter.addEventListener('change' , this.filterHandler.bind(this))
     }
 
     clearForm(){
@@ -69,9 +91,13 @@ class BudgetApp {
         this.date.value = ''
     }
 
-    updateUI(){
+    updateUI(budgets){
+        const bud = this.calculateBalance();
         this.table.innerHTML = '';
-        this.budget.forEach(budget => {
+        this.balance.innerHTML = bud.balance;
+        this.expence.innerHTML = "Нийт зарлага: " + bud.expence;
+        this.income.innerHTML = "Нийт орлого: " + bud.income;
+        budgets.forEach(budget => {
             this.table.insertAdjacentHTML('afterbegin' , `
                 <tr class="border-b">
                     <td class="py-2 flex items-center gap-4">
@@ -84,10 +110,31 @@ class BudgetApp {
             `)
         })
     }
+
+    calculateBalance(){
+        let totalIncome = 0;
+        let totalExpence = 0;
+        let balance = 0;
+        this.budget.forEach(budget => {
+            if(budget.type === '+'){
+                totalIncome += budget.amount
+            } else {
+                totalExpence += budget.amount
+            }
+        })
+
+        balance = totalIncome - totalExpence;
+
+        return {
+            income: totalIncome,
+            expence: totalExpence,
+            balance: balance
+        }
+    }
 }
 
 const app = new BudgetApp();
 
 // call , bind , apply
 
-// webkit
+// 
