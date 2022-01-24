@@ -9,6 +9,21 @@ canvas.height = 400;
 
 const ctx = canvas.getContext('2d');
 
+const pawnWhite = new Image();
+pawnWhite.src = './images/pawnWhite.png';
+// pawnWhite.width = 30;
+// pawnWhite.height = 30;
+const pawnBlack = new Image();
+pawnBlack.src = './images/pawnBlack.png';
+
+pawnWhite.addEventListener('load' , () => {
+    for(var k = 0; k < 8; k++){
+        ctx.drawImage(pawnBlack , (k * 50) + 10 , 60 , 30 , 30);
+        ctx.drawImage(pawnWhite , (k * 50) + 10 , 310 , 30 , 30);
+    }
+})
+
+
 for(let i = 0; i < 8; i++){
     let color;
 
